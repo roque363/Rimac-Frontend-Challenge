@@ -1,11 +1,4 @@
 {
   "files": [],
-  "references": [{ "path": "./tsconfig.app.json" }, { "path": "./tsconfig.node.json" }],
-  "compilerOptions": {
-    "baseUrl": "src",
-    "types": ["vitest/globals"],
-    "paths": {
-      "@root/*": ["./*"]
-    }
-  }
+  "references": [{ "path": "./tsconfig.app.json" }, { "path": "./tsconfig.node.json" }]
 }
