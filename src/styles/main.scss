@@ -1,0 +1,11 @@
+@use './variables' as *;
+
+@use './fonts';
+
+@use './normalize';
+
+body {
+  background-color: $grey-10-color;
+  font-family: $primary-font;
+  color: $grey-100-color;
+}
