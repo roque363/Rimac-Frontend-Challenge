@@ -1,7 +1,7 @@
-import {} from 'react';
+import AppRouter from '@root/routes/AppRouter';
 
 function App() {
-  return <></>;
+  return <AppRouter />;
 }
 
 export default App;
