@@ -1,10 +1,11 @@
-import type { User } from '@root/types/domain/user';
+import type { User, DocumentType } from '@root/types/domain/user';
 import type { Plan } from '@root/types/domain/plan';
 
 export type QuoteFor = 'me' | 'someone';
 
 export type QuoteForm = {
-  dni: string;
+  documentType: DocumentType;
+  documentNumber: string;
   phone: string;
   privacy: boolean;
   comms: boolean;

@@ -1,8 +1,11 @@
+export type DocumentType = 'DNI' | 'CE' | 'RUC';
+
 export type User = {
   name: string;
   lastName: string;
   birthDay: string;
   age: number;
-  document: string;
+  documentType: DocumentType;
+  documentNumber: string;
   phone: string;
 };

@@ -14,7 +14,8 @@ export function useUser() {
       const apiUser = await userService.getUser();
       const merged: User = {
         ...apiUser,
-        document: form.dni,
+        documentType: form.documentType,
+        documentNumber: form.documentNumber,
         phone: form.phone,
       };
       return merged;

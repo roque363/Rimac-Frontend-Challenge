@@ -7,7 +7,8 @@ export function mapUserDTOtoUser(dto: UserDTO): User {
   return Object.freeze({
     ...dto,
     age,
-    document: '',
+    documentType: 'DNI',
+    documentNumber: '',
     phone: '',
   });
 }

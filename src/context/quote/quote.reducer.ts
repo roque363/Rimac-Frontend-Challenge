@@ -1,7 +1,8 @@
 import type { QuoteAction, QuoteForm, QuoteState } from './quote.types';
 
 export const initialForm: QuoteForm = {
-  dni: '',
+  documentType: 'DNI',
+  documentNumber: '',
   phone: '',
   privacy: false,
   comms: false,
