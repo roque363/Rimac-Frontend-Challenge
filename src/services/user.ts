@@ -1,18 +1,18 @@
-import type { UserDTO } from '@root/types/dto/user.dto';
 import axiosInstance from '@root/utils/axiosInstance';
+import type { UserDTO } from '@root/types/dto/user.dto';
+import type { User } from '@root/types/domain/user';
+import { mapUserDTOtoUser } from '@root/mappers';
 
-const getUser = async (): Promise<UserDTO> => {
+const getUser = async (): Promise<User> => {
   try {
-    const response = await axiosInstance.get<UserDTO>('/user.json');
-    return response?.data;
+    const { data } = await axiosInstance.get<UserDTO>('/user.json');
+    return mapUserDTOtoUser(data);
   } catch (error) {
     console.error('[Error] Error getting user data', error);
     throw error;
   }
 };
 
-const userService = {
-  getUser,
-};
+const userService = Object.freeze({ getUser });
 
 export default userService;
