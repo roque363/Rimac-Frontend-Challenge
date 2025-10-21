@@ -47,7 +47,7 @@ const Home = () => {
   }
 
   return (
-    <div className={styles['home-bg']}>
+    <section className={styles['home-bg']}>
       <Container className={styles['home-bg__container']}>
         <div className={styles.grid}>
           <div className={styles['grid--left']}>
@@ -132,7 +132,7 @@ const Home = () => {
         </>
       </Container>
       <Footer />
-    </div>
+    </section>
   );
 };
 

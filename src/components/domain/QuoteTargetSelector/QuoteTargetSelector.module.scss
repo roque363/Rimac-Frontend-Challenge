@@ -1,0 +1,52 @@
+.selector {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  @media (min-width: $bp-lg) {
+    flex-direction: row;
+    justify-content: center;
+  }
+  &__item {
+  }
+}
+.option {
+  color: $neutrals-700-color;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  @media (min-width: $bp-lg) {
+    width: 208px;
+  }
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    @media (min-width: $bp-lg) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+  &__icon {
+    width: 2rem;
+    height: 2rem;
+
+    @media (min-width: $bp-lg) {
+      width: 48px;
+      height: 48px;
+    }
+  }
+  &__title {
+    font-size: 20px;
+    font-weight: 900;
+    line-height: 28px;
+    letter-spacing: -0.2px;
+    margin: 0;
+  }
+  &__desc {
+    font-size: 12px;
+    line-height: 20px;
+    letter-spacing: 0.2px;
+    margin: 0;
+  }
+}
