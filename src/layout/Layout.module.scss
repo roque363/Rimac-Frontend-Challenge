@@ -2,9 +2,13 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  position: relative;
 }
 
 .layout__main {
   flex: 1;
-  padding: 2rem 0;
+  padding: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
 }

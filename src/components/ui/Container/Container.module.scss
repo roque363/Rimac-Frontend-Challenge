@@ -1,0 +1,61 @@
+.root {
+  width: 100%;
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $gutter-xs;
+  padding-right: $gutter-xs;
+}
+
+@media (min-width: $bp-sm) {
+  .root {
+    padding-left: $gutter-sm;
+    padding-right: $gutter-sm;
+  }
+}
+
+.disableGutters {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.maxWidthXS {
+  max-width: $max-xs;
+}
+.maxWidthSM {
+  max-width: $max-sm;
+}
+.maxWidthMD {
+  max-width: $max-md;
+}
+.maxWidthLG {
+  max-width: $max-lg;
+}
+.maxWidthXL {
+  max-width: $max-xl;
+}
+
+.fixed {
+  max-width: $max-xs;
+}
+
+@media (min-width: $bp-sm) {
+  .fixed {
+    max-width: $max-sm;
+  }
+}
+@media (min-width: $bp-md) {
+  .fixed {
+    max-width: $max-md;
+  }
+}
+@media (min-width: $bp-lg) {
+  .fixed {
+    max-width: $max-lg;
+  }
+}
+@media (min-width: $bp-xl) {
+  .fixed {
+    max-width: $max-xl;
+  }
+}

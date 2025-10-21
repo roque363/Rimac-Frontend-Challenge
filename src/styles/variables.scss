@@ -3,6 +3,8 @@ $secondary-font: 'Lato', sans-serif;
 
 $primary-color: #03050f;
 
+$text-color: #03050f;
+
 $grey-100-color: #03050f;
 $grey-80-color: #2b304e;
 $grey-60-color: #5e6488;
@@ -19,3 +21,20 @@ $neutrals-500-color: #a9afd9;
 $neutrals-400-color: #d7dbf5;
 $neutrals-200-color: #edeffc;
 $neutrals-0-color: #ffffff;
+
+/* Breakpoints MUI (SCSS vars, evitamos var() en @media) */
+$bp-sm: 600px;
+$bp-md: 900px;
+$bp-lg: 1168px;
+$bp-xl: 1536px;
+
+/* Gutters (padding horizontal) */
+$gutter-xs: 24px;
+$gutter-sm: 24px;
+
+/* Máximos por breakpoint (ajustables) */
+$max-xs: 0px;
+$max-sm: 600px;
+$max-md: 900px;
+$max-lg: 1168px;
+$max-xl: 1600px;

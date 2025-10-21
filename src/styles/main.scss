@@ -1,11 +1,5 @@
-@use './variables' as *;
+@use './variables';
 
 @use './fonts';
 
 @use './normalize';
-
-body {
-  background-color: $grey-10-color;
-  font-family: $primary-font;
-  color: $grey-100-color;
-}
