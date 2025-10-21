@@ -47,8 +47,12 @@ const SummaryUserCard = (props: SummaryUserCardProps) => {
                 {formatCurrency(selectedPlan.price)} antes
               </span>
             )}{' '}
-            <strong>{formatCurrency(selectedPlan.discountPrice || selectedPlan.price)}</strong> al
-            mes
+            <strong>
+              {formatCurrency(
+                quoteFor === 'someone' ? Number(selectedPlan.discountPrice) : selectedPlan.price
+              )}
+            </strong>{' '}
+            al mes
           </p>
         </div>
       </div>
