@@ -219,7 +219,7 @@
       text-underline-offset: 2px;
     }
   }
-  .__error {
+  &__error {
     margin-top: 12px;
     color: $red-500-color;
     font-size: 14px;
