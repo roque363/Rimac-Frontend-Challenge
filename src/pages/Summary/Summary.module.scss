@@ -1,0 +1,55 @@
+.summary-bg {
+  padding: 2rem 0;
+  font-family: $secondary-font;
+}
+
+.back {
+  text-decoration: none;
+  display: none;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  @media (min-width: $bp-md) {
+    display: flex;
+  }
+  &__img {
+    width: 20px;
+    height: 20px;
+  }
+  &__text {
+    color: $blue-berry-600-color;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 20px;
+  }
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: 32px 0 48px;
+  @media (min-width: $bp-md) {
+    padding: 32px 0 40px;
+  }
+  .text {
+    color: $neutrals-700-color;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    @media (min-width: $bp-md) {
+      width: 544px;
+      text-align: left;
+    }
+    &__title {
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 36px;
+      @media (min-width: $bp-md) {
+        font-size: 40px;
+        line-height: 48px;
+      }
+    }
+  }
+}

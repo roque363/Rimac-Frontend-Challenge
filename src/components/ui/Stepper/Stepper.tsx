@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import BackArrowGrayIcon from '@root/assets/icons/icon-back-arrow-gray.svg';
 import clsx from '@root/utils/clsx';
 import styles from './Stepper.module.scss';
@@ -10,16 +11,23 @@ interface StepperProps {
 }
 
 const Stepper = (props: StepperProps) => {
-  const { currentStep, totalSteps, onBackHref = '/', className = '' } = props;
+  const { currentStep, totalSteps, onBackHref, className = '' } = props;
+  const navigate = useNavigate();
 
   const rootCls = clsx(styles.stepper, className);
 
   return (
     <div className={rootCls}>
       <div className={styles.stepper__mobile}>
-        <a href={onBackHref} className={styles.stepper__back} aria-label="Volver">
-          <img src={BackArrowGrayIcon} alt="" aria-hidden="true" />
-        </a>
+        {onBackHref && (
+          <a
+            onClick={() => navigate(onBackHref)}
+            className={styles.stepper__back}
+            aria-label="Volver"
+          >
+            <img src={BackArrowGrayIcon} alt="" aria-hidden="true" />
+          </a>
+        )}
         <p className={styles.stepper__text}>
           Paso {currentStep} de {totalSteps}
         </p>

@@ -46,10 +46,10 @@ const Plans = () => {
   return (
     <section>
       <Stepper currentStep={1} totalSteps={2} onBackHref="/" />
-      <Container>
+      <Container maxWidth="md">
         <div className={styles['plans-bg']}>
           <a href="/" className={styles.back}>
-            <img src={BackArrowBlueIcon} alt="Volver" className={styles.backButton__img} />
+            <img src={BackArrowBlueIcon} alt="Volver" className={styles.back__img} />
             <p className={styles.back__text}>Volver</p>
           </a>
           <div className={styles.header}>
