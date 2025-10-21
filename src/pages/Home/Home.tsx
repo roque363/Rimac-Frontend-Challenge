@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useQuote } from '@root/hooks/useQuote';
 import { useUser } from '@root/hooks/useUser';
@@ -24,6 +24,7 @@ const Home = () => {
   const navigate = useNavigate();
   const { state, setForm, setUser } = useQuote();
   const { loading, submitUserForm } = useUser();
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const onChange =
     (k: 'documentNumber' | 'phone' | 'privacy' | 'comms') =>
@@ -36,14 +37,19 @@ const Home = () => {
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
     const parsed = homeSchema.safeParse(state.form);
+    setErrorMessage(null);
     if (!parsed.success) {
-      alert(getFirstZodMessage(parsed.error));
+      setErrorMessage(getFirstZodMessage(parsed.error));
       return;
     }
 
-    const fullUser = await submitUserForm(state.form);
-    setUser(fullUser);
-    navigate('/planes');
+    try {
+      const fullUser = await submitUserForm(state.form);
+      setUser(fullUser);
+      navigate('/planes');
+    } catch (err) {
+      setErrorMessage('Hubo un error al enviar tus datos. Intenta nuevamente.');
+    }
   }
 
   return (
@@ -122,6 +128,7 @@ const Home = () => {
                 <Button type="submit" disabled={loading}>
                   Cotiza aquí
                 </Button>
+                {errorMessage && <p className={styles.form__error}>{errorMessage}</p>}
               </Stack>
             </form>
           </div>
