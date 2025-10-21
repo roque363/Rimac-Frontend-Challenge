@@ -11,8 +11,8 @@ export const homeSchema = z
     documentNumber: z.string().min(1, 'Ingrese su número de documento'),
     phone: z
       .string()
-      .min(9, 'El número debe tener 9 dígitos')
-      .max(9, 'El número debe tener 9 dígitos')
+      .min(9, 'El celular debe tener 9 dígitos')
+      .max(9, 'El celular debe tener 9 dígitos')
       .regex(/^[0-9]+$/, 'Solo se permiten números'),
     privacy: z.literal(true, { message: 'Debe aceptar la política de privacidad' }),
     comms: z.boolean().optional(),
