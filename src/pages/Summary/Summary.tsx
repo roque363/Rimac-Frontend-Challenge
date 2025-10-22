@@ -1,10 +1,9 @@
 import { useNavigate } from 'react-router-dom';
 import { useQuote } from '@root/hooks/useQuote';
-import Stepper from '@root/components/ui/Stepper';
-import Container from '@root/components/ui/Container';
 import BackArrowBlueIcon from '@root/assets/icons/icon-back-arrow-blue.svg';
-import styles from './Summary.module.scss';
+import { Container, Stepper } from '@root/components/ui';
 import SummaryUserCard from '@root/components/domain/SummaryUserCard';
+import styles from './Summary.module.scss';
 
 const Summary = () => {
   const navigate = useNavigate();

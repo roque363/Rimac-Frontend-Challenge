@@ -4,17 +4,19 @@ import { useQuote } from '@root/hooks/useQuote';
 import { useUser } from '@root/hooks/useUser';
 import { homeSchema } from '@root/schemas/homeForm.schema';
 import { zodErrorsByField } from '@root/utils/zod';
-import Container from '@root/components/ui/Container';
 import BannerHome from '@root/assets/images/banner-home.png';
-import styles from './Home.module.scss';
-import Badge from '@root/components/ui/Badge';
-import Button from '@root/components/ui/Button';
-import TextField from '@root/components/ui/TextField';
-import CheckBox from '@root/components/ui/CheckBox';
-import Select from '@root/components/ui/Select';
-import Stack from '@root/components/ui/Stack';
+import {
+  Badge,
+  Button,
+  CheckBox,
+  Container,
+  ErrorText,
+  Select,
+  Stack,
+  TextField,
+} from '@root/components/ui';
 import Footer from '@root/components/common/Footer';
-import ErrorText from '@root/components/ui/ErrorText';
+import styles from './Home.module.scss';
 
 const documentOptions = [
   { value: 'DNI', text: 'DNI' },

@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Container } from '@root/components/ui';
 import styles from './NotFound.module.scss';
-import Container from '@root/components/ui/Container';
 
 const NotFound = () => {
   const navigate = useNavigate();
@@ -14,7 +14,7 @@ const NotFound = () => {
   return (
     <Container>
       <div className={styles.notfound}>
-        <h1>404 – Página no encontrada</h1>
+        <h1>404 - Página no encontrada</h1>
         <p>Redirigiendo al inicio...</p>
       </div>
     </Container>

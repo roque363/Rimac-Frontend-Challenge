@@ -5,13 +5,12 @@ import ProtectionIcon from '@root/assets/icons/icon-protection-light.svg';
 import UserIcon from '@root/assets/icons/icon-user-light.svg';
 import BackArrowBlueIcon from '@root/assets/icons/icon-back-arrow-blue.svg';
 import type { Plan } from '@root/types/domain/plan';
-import Stepper from '@root/components/ui/Stepper';
-import Container from '@root/components/ui/Container';
-import styles from './Plans.module.scss';
+import { Container, Stepper } from '@root/components/ui';
 import QuoteTargetSelector, {
   type QuoteTargetOption,
 } from '@root/components/domain/QuoteTargetSelector';
 import PlansCarousel from '@root/components/domain/PlansCarousel';
+import styles from './Plans.module.scss';
 
 const options: QuoteTargetOption[] = [
   {

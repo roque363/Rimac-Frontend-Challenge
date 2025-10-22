@@ -1,4 +1,5 @@
 import React from 'react';
+import clsx from '@root/utils/clsx';
 import styles from './Button.module.scss';
 
 type ButtonSize = 'large' | 'medium';
@@ -14,9 +15,7 @@ export default function Button({
   children,
   ...rest
 }: ButtonProps) {
-  const classes = [styles.button, `${styles.button + '--' + size}`, className]
-    .filter(Boolean)
-    .join(' ');
+  const classes = clsx(styles.button, `${styles.button + '--' + size}`, className);
 
   return (
     <button className={classes} {...rest}>

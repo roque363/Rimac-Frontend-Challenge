@@ -1,7 +1,7 @@
 import type { User } from '@root/types/domain/user';
 import type { Plan } from '@root/types/domain/plan';
 import PeopleIcon from '@root/assets/icons/icon-family.svg';
-import SelectableCard from '@root/components/ui/SelectableCard';
+import { SelectableCard } from '@root/components/ui';
 import styles from './SummaryUserCard.module.scss';
 
 type SummaryUserCardProps = {
