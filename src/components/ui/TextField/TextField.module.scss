@@ -1,13 +1,16 @@
 .textField {
-  // height: 56px;
   position: relative;
   display: flex;
   flex-direction: column;
   padding: 8px 10px;
   border: 1px solid $grey-60-color;
-  transition: border-color 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+  background-color: transparent;
   &:focus-within {
-    border: 1px solid $grey-100-color;
+    border-color: $grey-100-color;
+    box-shadow: 0 0 0 2px rgba(79, 79, 255, 0.08);
   }
   &__label {
     color: $grey-60-color;
@@ -16,13 +19,13 @@
     position: absolute;
     top: 18px;
     left: 16px;
-    transition: all 0.1s ease-out;
+    transition:
+      transform 0.12s ease-out,
+      color 0.12s ease-out;
     pointer-events: none;
     transform-origin: left top;
-
     &--float {
       transform: translateY(-6px) scale(0.75);
-      font-size: 16px;
       line-height: 16px;
       color: $grey-60-color;
     }
@@ -35,14 +38,7 @@
     margin-top: 14px;
     padding: 0;
     &:focus {
-      border: 0;
       outline: 0;
-    }
-    &:not(:placeholder-shown) + .inputfield__label,
-    &:focus + .inputfield__label {
-      transform: translateY(-12px) scale(0.75);
-      font-size: 12px;
-      line-height: 16px;
     }
     &[type='number'] {
       -moz-appearance: textfield;
@@ -55,15 +51,38 @@
       }
     }
   }
+  &__helper {
+    margin-top: 6px;
+    font-size: 12px;
+    line-height: 16px;
+    color: $neutrals-600-color;
+  }
+  &__error {
+    margin-top: 6px;
+    font-size: 12px;
+    line-height: 16px;
+    color: $red-500-color;
+    font-weight: 600;
+  }
   &.default {
     border-radius: 8px;
   }
   &.left {
-    border-radius: 0px 8px 8px 0px;
+    border-radius: 0 8px 8px 0;
     margin-left: -1px;
   }
   &.right {
-    border-radius: 8px 0px 0px 8px;
+    border-radius: 8px 0 0 8px;
     margin-right: -1px;
+  }
+  &--error {
+    border-color: $red-500-color;
+    &:focus-within {
+      border-color: $red-500-color;
+      box-shadow: 0 0 0 2px rgba(255, 28, 68, 0.12);
+    }
+    .textField__label {
+      color: $red-500-color;
+    }
   }
 }

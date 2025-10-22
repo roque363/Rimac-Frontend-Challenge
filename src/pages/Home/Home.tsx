@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useQuote } from '@root/hooks/useQuote';
 import { useUser } from '@root/hooks/useUser';
 import { homeSchema } from '@root/schemas/homeForm.schema';
-import { getFirstZodMessage } from '@root/utils/zod';
+import { zodErrorsByField } from '@root/utils/zod';
 import Container from '@root/components/ui/Container';
 import BannerHome from '@root/assets/images/banner-home.png';
 import styles from './Home.module.scss';
@@ -14,6 +14,7 @@ import CheckBox from '@root/components/ui/CheckBox';
 import Select from '@root/components/ui/Select';
 import Stack from '@root/components/ui/Stack';
 import Footer from '@root/components/common/Footer';
+import ErrorText from '@root/components/ui/ErrorText';
 
 const documentOptions = [
   { value: 'DNI', text: 'DNI' },
@@ -24,7 +25,8 @@ const Home = () => {
   const navigate = useNavigate();
   const { state, setForm, setUser } = useQuote();
   const { loading, submitUserForm } = useUser();
-  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [errorAlert, setErrorAlert] = useState<string | null>(null);
 
   const onChange =
     (k: 'documentNumber' | 'phone' | 'privacy' | 'comms') =>
@@ -37,9 +39,10 @@ const Home = () => {
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
     const parsed = homeSchema.safeParse(state.form);
-    setErrorMessage(null);
+    setErrors({});
+    setErrorAlert(null);
     if (!parsed.success) {
-      setErrorMessage(getFirstZodMessage(parsed.error));
+      setErrors(zodErrorsByField(parsed.error));
       return;
     }
 
@@ -48,9 +51,11 @@ const Home = () => {
       setUser(fullUser);
       navigate('/planes');
     } catch (err) {
-      setErrorMessage('Hubo un error al enviar tus datos. Intenta nuevamente.');
+      setErrorAlert('Hubo un error al enviar tus datos. Intenta nuevamente.');
     }
   }
+
+  console.log('errors', errors);
 
   return (
     <section className={styles['home-bg']}>
@@ -79,22 +84,26 @@ const Home = () => {
               <Stack spacing={6}>
                 <Stack spacing={4}>
                   <div className={styles.form__col}>
-                    <Select
-                      variant="right"
-                      value={state.form.documentType}
-                      onChange={onSelect('documentType')}
-                      options={documentOptions}
-                      isValid={true}
-                    />
-                    <TextField
-                      variant="left"
-                      name="document"
-                      type="number"
-                      label="Nro. de documento"
-                      value={state.form.documentNumber}
-                      onChange={onChange('documentNumber')}
-                      style={{ flexGrow: 1 }}
-                    />
+                    <Stack direction="row" style={{ width: '100%' }}>
+                      <Select
+                        variant="right"
+                        value={state.form.documentType}
+                        onChange={onSelect('documentType')}
+                        options={documentOptions}
+                        isValid={true}
+                      />
+                      <TextField
+                        variant="left"
+                        name="document"
+                        type="number"
+                        label="Nro. de documento"
+                        value={state.form.documentNumber}
+                        onChange={onChange('documentNumber')}
+                        error={errors.documentNumber}
+                        style={{ flexGrow: 1 }}
+                      />
+                    </Stack>
+                    {errors.documentNumber && <ErrorText text={errors.documentNumber} />}
                   </div>
                   <div className={styles.form__col}>
                     <TextField
@@ -104,8 +113,10 @@ const Home = () => {
                       maxLength={9}
                       value={state.form.phone}
                       onChange={onChange('phone')}
+                      error={errors.phone}
                       style={{ flexGrow: 1 }}
                     />
+                    {errors.phone && <ErrorText text={errors.phone} />}
                   </div>
                 </Stack>
                 <Stack spacing={3}>
@@ -128,7 +139,8 @@ const Home = () => {
                 <Button type="submit" disabled={loading}>
                   Cotiza aquí
                 </Button>
-                {errorMessage && <p className={styles.form__error}>{errorMessage}</p>}
+                {errors.privacy && <p className={styles.form__error}>{errors.privacy}</p>}
+                {errorAlert && <p className={styles.form__error}>{errorAlert}</p>}
               </Stack>
             </form>
           </div>
