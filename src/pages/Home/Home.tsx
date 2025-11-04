@@ -57,8 +57,6 @@ const Home = () => {
     }
   }
 
-  console.log('errors', errors);
-
   return (
     <section className={styles['home-bg']}>
       <Container className={styles['home-bg__container']}>

@@ -1,6 +1,7 @@
 import React from 'react';
 
 import styles from './Container.module.scss';
+import clsx from '@root/utils/clsx';
 
 type Breakpoint = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 type MaxWidthProp = Breakpoint | false | number | string;
@@ -34,17 +35,14 @@ export const Container = React.forwardRef<HTMLElement, ContainerProps>((props, r
     ...rest
   } = props;
 
-  const classes = [
+  const classes = clsx(
     styles.root,
     disableGutters && styles.disableGutters,
     fixed && styles.fixed,
     !fixed && isBp(maxWidth) && mapClassByBp[maxWidth],
-    className,
-  ]
-    .filter(Boolean)
-    .join(' ');
+    className
+  );
 
-  // En fluid: soporta maxWidth numérico o string custom. maxWidth={false} => sin tope
   const inlineStyle: React.CSSProperties = { ...style };
   if (!fixed) {
     if (maxWidth === false) {
