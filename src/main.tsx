@@ -7,7 +7,7 @@ import '@root/styles/main.scss';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="/Rimac-Frontend-Challenge">
       <QuoteProvider>
         <App />
       </QuoteProvider>
