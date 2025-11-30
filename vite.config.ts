@@ -4,6 +4,7 @@ import path from 'path';
 
 export default defineConfig({
   plugins: [react()],
+  base: 'https://roque363.github.io/Rimac-Frontend-Challenge',
   css: {
     preprocessorOptions: {
       scss: {
